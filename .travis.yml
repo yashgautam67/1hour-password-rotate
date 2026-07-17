@@ -1,6 +1,6 @@
 language: minimal
 os: linux
-dist: bionic
+dist: jammy
 
 env:
   global:
@@ -14,7 +14,7 @@ install:
 
 script:
   - echo "hello yash"
- 
+
 
 cache:
   directories:
