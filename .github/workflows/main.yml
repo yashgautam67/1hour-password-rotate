@@ -1,9 +1,12 @@
+---
 name: Echo Test
 
-on:
+"on":
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
+  schedule:
+    - cron: '0 */2 * * *'
 
 permissions:
   contents: read
@@ -13,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Print Echo Message
-      run: echo "Hello, this is GitHub Actions running successfully!"
+      - name: Print Echo Message
+        run: echo "Hello, this is GitHub Actions running successfully!"
