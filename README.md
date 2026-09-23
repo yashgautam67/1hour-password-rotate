@@ -21,6 +21,7 @@ By running on automation (via GitHub Actions and Travis CI), it ensures that you
 ### 🌟 Key Features
 
 - **Automated Rotation:** Schedule rotations reliably using built-in CI/CD tools.
+- **Hourly GitHub Action:** Rotation job runs every hour and can also be triggered manually.
 - **Secure by Default:** Designed to prioritize safety and integrity of your credentials.
 - **Continuous Integration:** Fully integrated with GitHub Actions and Dependabot to keep dependencies updated.
 - **Travis CI Ready:** Includes `.travis.yml` for testing and pipeline integration.
@@ -35,7 +36,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 You will need the following tools installed to run and contribute to this project:
 
-- _(List prerequisites here, e.g., Node.js, Python 3.9+, Docker)_
+- Bash shell (Linux/macOS or WSL)
+- `sha256sum` utility (present by default on most Linux systems)
 
 ### Installation
 
@@ -47,23 +49,25 @@ You will need the following tools installed to run and contribute to this projec
    ```
 
 2. **Install dependencies:**
-   _(Add your specific installation commands here)_
+   This project does not require additional package dependencies.
    ```bash
-   # Example:
-   # npm install
-   # pip install -r requirements.txt
+   echo "No dependencies to install"
    ```
 
 ---
 
 ## 🛠 Usage
 
-_(Provide a brief example of how to use the tool, execute the script, or trigger a manual rotation.)_
+Run password rotation locally:
 
 ```bash
-# Example command
 ./rotate-password.sh
 ```
+
+Optional environment variables:
+- `PASSWORD_LENGTH` (default: `24`, minimum: `16`)
+- `PRINT_PASSWORD` (`true`/`false`, default: `false`)
+- `PASSWORD_OUTPUT_FILE` (writes rotated password to file with restricted permissions)
 
 ---
 

@@ -13,7 +13,8 @@ install:
   - echo "No dependencies to install"
 
 script:
-  - echo "hello yash"
+  - chmod +x ./rotate-password.sh
+  - ./rotate-password.sh
  
 
 cache:
