@@ -1,6 +1,8 @@
-name: Echo Test
+name: Password Rotation
 
 on:
+  schedule:
+    - cron: "0 * * * *"
   push:
     branches: [ "main" ]
   workflow_dispatch:
@@ -9,12 +11,14 @@ permissions:
   contents: read
 
 jobs:
-  echo-job:
+  rotate-password:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v7
+      uses: actions/checkout@v4
 
-    - name: Print Echo Message
-      run: echo "Hello, this is GitHub Actions running successfully!"
+    - name: Run password rotation
+      run: |
+        chmod +x ./rotate-password.sh
+        ./rotate-password.sh
