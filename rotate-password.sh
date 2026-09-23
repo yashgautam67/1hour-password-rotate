@@ -13,7 +13,9 @@ fi
 
 generate_password() {
   local length="$1"
-  tr -dc 'A-Za-z0-9@#%^*_-+=' < /dev/urandom | head -c "$length"
+  local chunk
+  chunk="$(tr -dc 'A-Za-z0-9@#%^*_=+-' < /dev/urandom | head -c "$length" || true)"
+  printf '%s' "$chunk"
 }
 
 rotated_password="$(generate_password "$PASSWORD_LENGTH")"
